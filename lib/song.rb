@@ -18,11 +18,13 @@ class Song
   end 
   
   def artist_name=(name) #getter 
-    if Artist.all.include?(name)
-      self.artist = name 
-    else 
-      Artist.new(name)
-      self.artist = name 
+    Artist.all.each do |artist| 
+      if artist.name = name 
+        self.artist = artist 
+      end 
+    end 
+    if self.artist == nil 
+      self.artist = Artist.new(name) 
     end 
   end 
 end 
