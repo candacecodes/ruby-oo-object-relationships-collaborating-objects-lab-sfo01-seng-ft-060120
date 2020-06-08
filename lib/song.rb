@@ -12,9 +12,11 @@ class Song
   end 
   
   def self.new_by_filename(file)
-    parsed_file = file.split(" - ")
-    Song.new.name = parsed_file[0]
-    Song.new.artist = parsed_file[1]
+    array = file.split (' - ') 
+    song = Song.new(array[1])
+    
+    song.artist = Artist.find_or_create_by_name(array[0])
+    
   end 
   
   def artist_name=(name) #getter 
